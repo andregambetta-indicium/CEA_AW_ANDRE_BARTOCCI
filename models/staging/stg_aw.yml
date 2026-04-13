@@ -1,0 +1,180 @@
+version: 2
+
+models:
+  - name: stg_aw__salesorderheader
+    description: "Cleaned and typed sales order header table. This is the main source for sales facts."
+    columns:
+      - name: salesorderid
+        description: "Primary key for sales orders."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: status
+        description: "Order status (1 = In process; 2 = Approved; 3 = Backordered; 4 = Rejected; 5 = Shipped; 6 = Cancelled)."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3, 4, 5, 6]
+
+      - name: customerid
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_aw__customer')
+                field: customerid
+
+  - name: stg_aw__salesorderdetail
+    description: "Individual line items for each sales order."
+    columns:
+      - name: salesorderdetailid
+        data_tests:
+          - unique
+          - not_null
+      - name: salesorderid
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_aw__salesorderheader')
+                field: salesorderid
+
+  - name: stg_aw__product
+    description: "Master list of products."
+    columns:
+      - name: productid
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_aw__productsubcategory
+    description: "Subcategories for product grouping."
+    columns:
+      - name: productsubcategoryid
+        data_tests:
+          - unique
+          - not_null
+      - name: productcategoryid
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_aw__productcategory')
+                field: productcategoryid
+
+  - name: stg_aw__productcategory
+    description: "Broad categories for products."
+    columns:
+      - name: productcategoryid
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_aw__customer
+    description: "Customers who place orders."
+    columns:
+      - name: customerid
+        data_tests:
+          - unique
+          - not_null
+      - name: personid
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_aw__person')
+                field: businessentityid
+
+  - name: stg_aw__person
+    description: "Individuals associated with customers or employees."
+    columns:
+      - name: businessentityid
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_aw__address
+    description: "Address details for shipping and billing."
+    columns:
+      - name: addressid
+        data_tests:
+          - unique
+          - not_null
+      - name: stateprovinceid
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_aw__stateprovince')
+                field: stateprovinceid
+
+  - name: stg_aw__stateprovince
+    description: "States and provinces information."
+    columns:
+      - name: stateprovinceid
+        data_tests:
+          - unique
+          - not_null
+      - name: countryregioncode
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_aw__countryregion')
+                field: countryregioncode
+
+  - name: stg_aw__countryregion
+    description: "Countries and major regions."
+    columns:
+      - name: countryregioncode
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_aw__salesterritory
+    description: "Sales territories for geographic grouping."
+    columns:
+      - name: territoryid
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_aw__creditcard
+    description: "Master list of credit cards used for payments."
+    columns:
+      - name: creditcardid
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_aw__personcreditcard
+    description: "Bridge between people and their credit cards."
+    columns:
+      - name: businessentityid
+        data_tests:
+          - not_null
+      - name: creditcardid
+        data_tests:
+          - not_null
+
+  - name: stg_aw_salesorderheadersalesreason
+    description: "Bridge between orders and their sales reasons."
+    columns:
+      - name: salesorderid
+        data_tests:
+          - not_null
+      - name: salesreasonid
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_aw_salesreason')
+                field: salesreasonid
+
+  - name: stg_aw_salesreason
+    description: "Look-up table for why sales occurred."
+    columns:
+      - name: salesreasonid
+        data_tests:
+          - unique
+          - not_null
