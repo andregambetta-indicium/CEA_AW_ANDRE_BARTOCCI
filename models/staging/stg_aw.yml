@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: stg_aw__salesorderheader
+    description: "Cleaned and typed sales order header table."
+    columns:
+      - name: salesorderid
+        description: "Primary key for sales orders."
+        tests:
+          - unique
+          - not_null
+
+      - name: status
+        description: "Order status (1 = In process; 2 = Approved; 3 = Backordered; 4 = Rejected; 5 = Shipped; 6 = Cancelled)."
+        tests:
+          - accepted_values:
+              values: [1, 2, 3, 4, 5, 6]
+
+  - name: stg_aw__product
+    description: "Cleaned product table."
+    columns:
+      - name: productid
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_aw__customer
+    description: "Cleaned customer table."
+    columns:
+      - name: customerid
+        tests:
+          - unique
+          - not_null
+
+      - name: personid
+        tests:
+          - relationships:
+              to: ref('stg_aw__person')
+              field: businessentityid
