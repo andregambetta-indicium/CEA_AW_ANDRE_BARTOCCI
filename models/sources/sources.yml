@@ -16,7 +16,7 @@ sources:
         columns:
           - name: salesorderid
             tests:
-              - not_null # Unique removido aqui pois um pedido pode ter vários motivos
+              - not_null
 
       - name: salesreason
         columns:

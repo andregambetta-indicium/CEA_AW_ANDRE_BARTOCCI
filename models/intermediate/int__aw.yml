@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: int__aw__dim_credit_card
+    columns:
+      - name: creditcardid
+        tests:
+          - unique
+          - not_null
+
+  - name: int__aw__dim_customer
+    columns:
+      - name: customerid
+        tests:
+          - unique
+          - not_null
+
+  - name: int__aw__dim_product
+    columns:
+      - name: productid
+        tests:
+          - unique
+          - not_null
+
+  - name: int__aw__dim_region
+    columns:
+      - name: addressid
+        tests:
+          - unique
+          - not_null
+      - name: stateprovinceid
+        tests:
+          - not_null
+
+  - name: int__aw__fct_sales
+    columns:
+      - name: salesorderid
+        tests:
+          - unique
+          - not_null
+      - name: customerid
+        tests:
+          - not_null
+      - name: totaldue
+        tests:
+          - not_null
