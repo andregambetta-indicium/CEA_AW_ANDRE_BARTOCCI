@@ -1,4 +1,4 @@
-with fct_sales as (
+with int_sales as (
     select * from {{ ref('int__aw__fct_sales') }}
 )
 
@@ -23,13 +23,9 @@ select
     revisionnumber as revision_number,
     reasonname as sales_reason,
     reasontype as sales_reason_type,
-    total_items,
-    total_orderqty as total_order_quantity,
-    gross_total,
-    net_total,
     subtotal,
     taxamt as tax_amount,
     freight as freight_amount,
     totaldue as total_amount_due
 
-from fct_sales
+from int_sales
