@@ -13,6 +13,7 @@ final_dates as (
         date_day as full_date,
         extract(year from date_day) as year,
         extract(month from date_day) as month,
+        to_char(date_day, 'YYYY/MM') as year_month, 
         extract(day from date_day) as day,
         extract(quarter from date_day) as quarter,
         extract(dayofweek from date_day) as day_of_week,
