@@ -17,6 +17,7 @@ Transformar os dados brutos do ERP (PostgreSQL) da Adventure Works em informaç�
 ## 🔗 Links do Projeto
 - **📊 Dashboard Interativo (Power BI Online):** [Acesse o Painel aqui](https://app.powerbi.com/view?r=eyJrIjoiOWE1MjE3MmMtN2UxZi00NmQxLWE2ODgtMzRkNWVlY2FhNGIyIiwidCI6IjM1YzRlYzQzLTZlMDctNGQ1Mi05Njk4LWIwYTYwZDg0ZmFiNSJ9)
 - **📐 Diagrama Conceitual:** [Visualize o Modelo Dimensional no DrawSQL](https://drawsql.app/teams/andre-bartocci/diagrams/cea-andre-bartocci)
+- **📁 Pasta de Downloads (Drive):** [Arquivos PDF e PBIX](https://drive.google.com/drive/folders/1W0NqXGUjU7QF7VPMbkwNdW3CLTnWetuK)
 
 ---
 
