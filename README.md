@@ -10,6 +10,7 @@ Transformar os dados brutos do ERP (PostgreSQL) da Adventure Works em informaç�
 - **Transformação de Dados:** dbt (Data Build Tool)
 - **Linguagem:** SQL
 - **Diagramação:** DrawSQL
+- **Fundos do dashboard e ícones:** Figma
 - **Visualização (BI):** Power BI
 
 ---
