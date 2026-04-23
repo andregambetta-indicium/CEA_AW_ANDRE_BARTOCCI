@@ -10,11 +10,13 @@ Transformar os dados brutos do ERP (PostgreSQL) da Adventure Works em informaç�
 - **Transformação de Dados:** dbt (Data Build Tool)
 - **Linguagem:** SQL
 - **Diagramação:** DrawSQL
+- **Fundos do dashboard e ícones:** Figma
 - **Visualização (BI):** Power BI
 
 ---
 
 ## 🔗 Links do Projeto
+- **📺 Apresentação em Vídeo** [YouTube](https://youtu.be/j_I8ui-5HI0)
 - **📊 Dashboard Interativo (Power BI Online):** [Acesse o Painel aqui](https://app.powerbi.com/view?r=eyJrIjoiOWE1MjE3MmMtN2UxZi00NmQxLWE2ODgtMzRkNWVlY2FhNGIyIiwidCI6IjM1YzRlYzQzLTZlMDctNGQ1Mi05Njk4LWIwYTYwZDg0ZmFiNSJ9)
 - **📐 Diagrama Conceitual:** [Visualize o Modelo Dimensional no DrawSQL](https://drawsql.app/teams/andre-bartocci/diagrams/cea-andre-bartocci)
 - **📁 Pasta de Downloads (Drive):** [Arquivos PDF e PBIX](https://drive.google.com/drive/folders/1W0NqXGUjU7QF7VPMbkwNdW3CLTnWetuK)
@@ -48,9 +50,3 @@ O dashboard permite filtrar e analisar:
 - Melhores produtos por ticket médio e volume.
 - Ranking de clientes e cidades por valor negociado.
 - Impacto de motivos de venda (ex: campanhas de "Promotion").
-
----
-
-## 📺 Apresentação em Vídeo
-*(PLACEHOLDER)*
-[Link para o vídeo explicativo]
